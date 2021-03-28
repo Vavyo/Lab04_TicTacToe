@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
+using Lab04_TicTacToe.Classes;
 
 namespace Labo4_TicTacToe.tests.Classes
 {
@@ -11,6 +12,7 @@ namespace Labo4_TicTacToe.tests.Classes
         public void Game_given_board_test_for_winners()
         {
             // arrange
+            
             // act
             // assert
         }
