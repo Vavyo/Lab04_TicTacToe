@@ -64,8 +64,22 @@ namespace Labo4_TicTacToe.tests.Classes
         public void Game_NextPlayer_returns_active_player()
         {
             // arrange
+            Game game = new Game(new Player(), new Player());
+            game.PlayerOne.IsTurn = true;
+            game.PlayerTwo.IsTurn = false;
+
             // act
+            Player result = game.NextPlayer();
+
+            // assert 
+            Assert.True(result.IsTurn);
+
+            // act
+            game.SwitchPlayer();
+            result = game.NextPlayer();
+
             // assert
+            Assert.True(result.IsTurn);
         }
     }
 }
