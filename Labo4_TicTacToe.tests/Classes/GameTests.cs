@@ -38,12 +38,27 @@ namespace Labo4_TicTacToe.tests.Classes
             Assert.True(game.PlayerOne.IsTurn);
             Assert.False(game.PlayerTwo.IsTurn);
         }
-        [Fact]
-        public void Confirm_player_position_refers_to_correct_space_on_board()
+        [Theory]
+        [InlineData(1, "1")]
+        [InlineData(2, "2")]
+        [InlineData(3, "3")]
+        [InlineData(4, "4")]
+        [InlineData(5, "5")]
+        [InlineData(6, "6")]
+        [InlineData(7, "7")]
+        [InlineData(8, "8")]
+        [InlineData(9, "9")]
+        public void Confirm_player_position_refers_to_correct_space_on_board(int num, string expectedBoardValue)
         {
             // arrange
+            Board board = new Board();
+            Position pos = Player.PositionForNumber(num);
+
             // act
+            bool result = board.GameBoard[pos.Row, pos.Column] == expectedBoardValue;
+
             // assert
+            Assert.True(result);
         }
         [Fact]
         public void Game_NextPlayer_returns_active_player()
